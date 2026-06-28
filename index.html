@@ -1,42 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <title>sunan shafina</title>
+     <title>Bashar Aliyu - Portfolio</title>
      <style>
           body {
                background-color: #f4f4f4;
                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-               padding: 30px; /* Bada sarari a zagayen shafin */
+               padding: 20px;
+               margin: 0;
+          }
+          .babban-akwati {
+               max-width: 500px;
+               margin: 30px auto;
           }
           .akwati {
                background-color: white;
-               /* Wannan shi ne padding: sararin cikin akwatin */
-               padding: 40px; 
-               /* Wannan shi ne margin: sararin wajen akwatin */
-               margin: 20px auto;
-               max-width: 500px;
-               border-radius: 10px; /* Lankwasa kusurwoyi */
-               box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sanya inuwa */
-          }
-          h1 {
-               color: #2c3e50;
+               padding: 30px; 
+               margin-bottom: 20px;
+               border-radius: 10px;
+               box-shadow: 0 4px 8px rgba(0,0,0,0.1);
                text-align: center;
-               font-size: 32px;
-               margin-bottom: 20px; /* Bada fili a karkashin h1 */
           }
-          p {
-               color: #555;
-               text-align: center;
+          .hoto-guri {
+               width: 100px;
+               height: 100px;
+               background-color: #34495e;
+               color: white;
+               border-radius: 50%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               margin: 0 auto 20px auto;
+               font-size: 40px;
+               font-weight: bold;
+          }
+          h1 { color: #2c3e50; margin-bottom: 5px; font-size: 28px; }
+          .matsayi { color: #2ecc71; font-weight: bold; margin-top: 0; font-size: 16px; }
+          p { color: #555; font-size: 15px; line-height: 1.6; text-align: justify; }
+          
+          /* Tsarin Form */
+          form { text-align: left; }
+          input[type="text"], input[type="email"] {
+               width: 100%;
+               padding: 12px;
+               margin: 8px 0 15px 0;
+               border: 1px solid #ccc;
+               border-radius: 5px;
+               box-sizing: border-box;
+          }
+          button {
+               width: 100%;
+               background-color: #2ecc71;
+               color: white;
+               padding: 12px;
+               border: none;
+               border-radius: 5px;
                font-size: 16px;
-               line-height: 1.6;
+               cursor: pointer;
           }
+          label { font-weight: bold; color: #333; font-size: 14px; }
      </style>
 </head>
 <body>
-     <!-- Mun hada rubutun a cikin akwati guda daya -->
-     <div class="akwati">
-          <h1>Welcome to my page</h1>
-          <p>Sunana Bashar Aliyu. Yau ina koyon yadda ake bada tazarar sarari ta amfani da Margin da Padding a CSS.</p>
+
+     <div class="babban-akwati">
+          
+          <!-- Akwatin Bayanin Kai -->
+          <div class="akwati">
+               <div class="hoto-guri">B</div>
+               <h1>Bashar Aliyu</h1>
+               <p class="matsayi">Aspiring Web Developer</p>
+               <p>Welcome to my page! My name is  Bashar Aliyu.  I am a creative professional learning to build beautiful, modern websites. This is my first website that I built myself using HTML da CSS.</p>
+          </div>
+
+          <!-- Akwatin Tuntuba -->
+          <div class="akwati">
+               <h2 style="color: #2c3e50; margin-top: 0;">Tuntube Ni</h2>
+               <form>
+                    <label>name:</label>
+                    <input type="text" placeholder="write your name">
+
+                    <label>your email:</label>
+                    <input type="email" placeholder="example@gmail.com">
+
+                    <button type="button">send</button>
+               </form>
+          </div>
+
      </div>
+
 </body>
 </html>
