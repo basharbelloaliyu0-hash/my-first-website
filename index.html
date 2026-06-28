@@ -5,27 +5,38 @@
      <style>
           body {
                background-color: #f4f4f4;
-               /* Canza fasalin rubutun duka shafin */
                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+               padding: 30px; /* Bada sarari a zagayen shafin */
+          }
+          .akwati {
+               background-color: white;
+               /* Wannan shi ne padding: sararin cikin akwatin */
+               padding: 40px; 
+               /* Wannan shi ne margin: sararin wajen akwatin */
+               margin: 20px auto;
+               max-width: 500px;
+               border-radius: 10px; /* Lankwasa kusurwoyi */
+               box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sanya inuwa */
           }
           h1 {
                color: #2c3e50;
                text-align: center;
-               /* Canza girman babban taken shafi */
-               font-size: 36px; 
+               font-size: 32px;
+               margin-bottom: 20px; /* Bada fili a karkashin h1 */
           }
           p {
                color: #555;
                text-align: center;
-               /* Canza girman kananan rubutu */
-               font-size: 18px;
-               /* Bada tazara tsakanin layuka don karatu ya yi sauki */
+               font-size: 16px;
                line-height: 1.6;
           }
      </style>
 </head>
 <body>
-     <h1>Welcome to my page</h1>
-     <p>Sunana Bashar Aliyu. Yau ina koyon yadda ake canza fasali da girman rubutu ta amfani da CSS Fonts.</p>
+     <!-- Mun hada rubutun a cikin akwati guda daya -->
+     <div class="akwati">
+          <h1>Welcome to my page</h1>
+          <p>Sunana Bashar Aliyu. Yau ina koyon yadda ake bada tazarar sarari ta amfani da Margin da Padding a CSS.</p>
+     </div>
 </body>
 </html>
