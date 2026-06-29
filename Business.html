@@ -16,7 +16,6 @@
         .service-title { color: #212529; font-weight: bold; font-size: 16px; margin-bottom: 5px; }
         .service-desc { color: #495057; font-size: 13px; line-height: 1.5; }
         
-        /* Tsarin Calculator */
         .calc-section { background-color: #fff; border: 1px solid #e3e6f0; padding: 20px; border-radius: 10px; margin: 30px 0; text-align: left; }
         select, input { width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 15px; }
         .res-box { background-color: #e1f5fe; padding: 12px; border-radius: 5px; font-weight: bold; font-size: 16px; color: #0277bd; text-align: center; display: none; margin-top: 10px; }
@@ -24,6 +23,9 @@
 
         .btn-call { background-color: #198754; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center; }
         .btn-whatsapp { background-color: #25d366; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center; margin-top: 10px; display: block; text-decoration: none; }
+        
+        .form-section { background-color: #fff; border: 1px solid #e3e6f0; padding: 20px; border-radius: 10px; margin: 30px 0; text-align: left; }
+        label { font-weight: bold; color: #333; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -55,19 +57,33 @@
         <!-- Sashen Calculator -->
         <div class="calc-section">
             <h5 style="color: #212529; font-weight: bold; margin: 0 0 15px 0; text-align: center;">🧮 Lissafo Kudin Aiki Cikin Sauri</h5>
-            
-            <label style="font-weight: bold; font-size: 13px;">Zabi Sabis:</label>
+            <label>Zabi Sabis:</label>
             <select id="sabis">
                 <option value="1000">Siyar da SIM Card (Lifita ₦1,000)</option>
                 <option value="1500">SIM Swap (Lifita ₦1,500)</option>
                 <option value="2000">National ID & NIN (Lifita ₦2,000)</option>
             </select>
-
-            <label style="font-weight: bold; font-size: 13px;">Yawan Abubuwan Da Kake Bukata:</label>
+            <label>Yawan Abubuwan Da Kake Bukata:</label>
             <input type="number" id="yawan_aiki" value="1" min="1">
-
             <button class="btn-calc" onclick="lissafoKudi()">Lissafo Kudin Aiki</button>
             <div id="sakamako" class="res-box"></div>
+        </div>
+
+        <!-- SABON SASHEN FOM NA DATABASE -->
+        <div class="form-section">
+            <h5 style="color: #212529; font-weight: bold; margin: 0 0 15px 0; text-align: center;">📝 Tura Bukatar Aiki</h5>
+            <form>
+                <label>Sunanka:</label>
+                <input type="text" id="bako_suna" placeholder="Rubuta sunanka a nan">
+
+                <label>Lambar Wayarka:</label>
+                <input type="text" id="bako_tel" placeholder="Misali: 08033333333">
+
+                <label>Imeil Dinka (Idan akwai):</label>
+                <input type="email" id="bako_email" placeholder="misali@gmail.com">
+
+                <button type="button" class="btn-calc" style="background-color: #2ecc71; margin-top: 10px;" onclick="turaBayanai()">Tura Bayanai zuwa Database</button>
+            </form>
         </div>
 
         <!-- Guraren Tuntuba -->
@@ -77,10 +93,8 @@
 
     <!-- KWA KWALWAR JAVASCRIPT -->
     <script>
-        // 1. Sakon Maraba
         alert("Barka da zuwa Bashar Telecom! 📱\nMuna farin ciki da ziyararku. Muna muku fatan alheri da samun sabis mai inganci.");
 
-        // 2. Lissafin Calculator
         function lissafoKudi() {
             let kudin_sabis = document.getElementById("sabis").value;
             let yawa = document.getElementById("yawan_aiki").value;
@@ -90,8 +104,19 @@
             gurin_sakamako.style.display = "block";
             gurin_sakamako.innerHTML = "Jimillar Kudinka: ₦" + jimilla;
         }
+
+        // Wannan shi ne aikin da zai tura bayanai nan gaba
+        function turaBayanai() {
+            let suna = document.getElementById("bako_suna").value;
+            let waya = document.getElementById("bako_tel").value;
+            
+            if(suna == "" || waya == "") {
+                alert("Don Allah cika gurin Suna da Lambar Waya!");
+            } else {
+                alert("Sannu " + suna + ", an karbi bayaranka! (Gobe za mu hada ma'ajiyar Google ta gaske domin adanawa).");
+            }
+        }
     </script>
 
 </body>
-    </html>
-    
+</html>
