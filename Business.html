@@ -11,13 +11,17 @@
         .title { color: #0d6efd; font-size: 26px; font-weight: bold; margin-bottom: 5px; }
         .subtitle { color: #6c757d; font-size: 14px; }
         
-        /* Tsarin akwatinan ayyuka (Services Grid) */
         .row { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
         .service-card { background-color: #f1f8ff; padding: 15px; border-radius: 8px; border-left: 5px solid #0d6efd; }
         .service-title { color: #212529; font-weight: bold; font-size: 16px; margin-bottom: 5px; }
         .service-desc { color: #495057; font-size: 13px; line-height: 1.5; }
         
-        /* Tsarin kasan shafi na tuntuba */
+        /* Tsarin Calculator */
+        .calc-section { background-color: #fff; border: 1px solid #e3e6f0; padding: 20px; border-radius: 10px; margin: 30px 0; text-align: left; }
+        select, input { width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 15px; }
+        .res-box { background-color: #e1f5fe; padding: 12px; border-radius: 5px; font-weight: bold; font-size: 16px; color: #0277bd; text-align: center; display: none; margin-top: 10px; }
+        .btn-calc { background-color: #0d6efd; color: white; border: none; width: 100%; padding: 12px; border-radius: 5px; font-size: 15px; font-weight: bold; cursor: pointer; }
+
         .btn-call { background-color: #198754; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center; }
         .btn-whatsapp { background-color: #25d366; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center; margin-top: 10px; display: block; text-decoration: none; }
     </style>
@@ -25,43 +29,69 @@
 <body>
 
     <div class="container">
-        <!-- Sashen Suna da Jigo -->
+        <!-- Sunan Kasuwanci -->
         <div class="header">
             <div class="title">Bashar Telecom 📱</div>
             <div class="subtitle">Saurin Aiki, Amana, da Inganci</div>
         </div>
 
-        <!-- Sashen Ayyukan da Ake Yi (Services) -->
+        <!-- Akwatunan Ayyuka -->
         <h5 style="color: #212529; font-weight: bold; margin-bottom: 15px;">Ayyukanmu:</h5>
         <div class="row">
-            <!-- Aiki na 1 -->
             <div class="service-card">
                 <div class="service-title">🛒 Siyar da SIM Card</div>
-                <div class="service-desc">Muna siyar da sabbin SIM na MTN, Airtel, Glo, da 9mobile tare da yin rajista (Registration) nan take.</div>
+                <div class="service-desc">Muna siyar da sabbin SIM na MTN, Airtel, Glo, da 9mobile tare da yin rajista nan take.</div>
             </div>
-            
-            <!-- Aiki na 2 -->
             <div class="service-card" style="border-left-color: #dc3545;">
                 <div class="service-title">🔄 SIM Swap</div>
                 <div class="service-desc">SIM dinka ya bace ko ya lalace? Kawo lamba mu taya ka dawo da shi cikin kankanin lokaci.</div>
             </div>
-
-            <!-- Aiki na 3 -->
             <div class="service-card" style="border-left-color: #ffc107;">
                 <div class="service-title">🪪 National ID & NIN</div>
                 <div class="service-desc">Yin rajistar sabon NIN, sauke katin National ID, da gyara matsalolin katinku cikin sauki.</div>
             </div>
         </div>
 
-        <!-- Sashen Tuntuba (Call & WhatsApp Buttons) -->
+        <!-- Sashen Calculator -->
+        <div class="calc-section">
+            <h5 style="color: #212529; font-weight: bold; margin: 0 0 15px 0; text-align: center;">🧮 Lissafo Kudin Aiki Cikin Sauri</h5>
+            
+            <label style="font-weight: bold; font-size: 13px;">Zabi Sabis:</label>
+            <select id="sabis">
+                <option value="1000">Siyar da SIM Card (Lifita ₦1,000)</option>
+                <option value="1500">SIM Swap (Lifita ₦1,500)</option>
+                <option value="2000">National ID & NIN (Lifita ₦2,000)</option>
+            </select>
 
-                <!-- Maballin Kira na gaske -->
+            <label style="font-weight: bold; font-size: 13px;">Yawan Abubuwan Da Kake Bukata:</label>
+            <input type="number" id="yawan_aiki" value="1" min="1">
+
+            <button class="btn-calc" onclick="lissafoKudi()">Lissafo Kudin Aiki</button>
+            <div id="sakamako" class="res-box"></div>
+        </div>
+
+        <!-- Guraren Tuntuba -->
         <a href="tel:+2347048888996" class="btn-call" style="text-decoration: none; display: block;">📞 Kira Mu Yanzu</a>
-
-        <!-- Maballin WhatsApp na gaske -->
-        <a href="https://wa.me." class="btn-whatsapp" target="_blank" style="text-decoration: none; display: block;">💬 Magana a WhatsApp</a>
-        
+        <a href="https://wa.me." class="btn-whatsapp" target="_blank">💬 Magana a WhatsApp</a>
     </div>
 
+    <!-- KWA KWALWAR JAVASCRIPT -->
+    <script>
+        // 1. Sakon Maraba
+        alert("Barka da zuwa Bashar Telecom! 📱\nMuna farin ciki da ziyararku. Muna muku fatan alheri da samun sabis mai inganci.");
+
+        // 2. Lissafin Calculator
+        function lissafoKudi() {
+            let kudin_sabis = document.getElementById("sabis").value;
+            let yawa = document.getElementById("yawan_aiki").value;
+            let jimilla = kudin_sabis * yawa;
+            
+            let gurin_sakamako = document.getElementById("sakamako");
+            gurin_sakamako.style.display = "block";
+            gurin_sakamako.innerHTML = "Jimillar Kudinka: ₦" + jimilla;
+        }
+    </script>
+
 </body>
-</html>
+    </html>
+    
