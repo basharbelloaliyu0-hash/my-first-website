@@ -3,104 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bashar Telecom - SIM & NIN Services</title>
+    <title>Bashar Telecom - Business</title>
     <style>
-        body { background-color: #f8f9fa; font-family: sans-serif; padding: 15px; margin: 0; }
-        .container { background-color: white; max-width: 500px; margin: 20px auto; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .header { text-align: center; margin-bottom: 25px; }
-        .title { color: #0d6efd; font-size: 26px; font-weight: bold; margin-bottom: 5px; }
-        .subtitle { color: #6c757d; font-size: 14px; }
-        
-        .row { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
-        .service-card { background-color: #f1f8ff; padding: 15px; border-radius: 8px; border-left: 5px solid #0d6efd; }
-        .service-title { color: #212529; font-weight: bold; font-size: 16px; margin-bottom: 5px; }
-        .service-desc { color: #495057; font-size: 13px; line-height: 1.5; }
-        
-        .calc-section { background-color: #fff; border: 1px solid #e3e6f0; padding: 20px; border-radius: 10px; margin: 30px 0; text-align: left; }
-        select, input { width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 15px; }
-        .res-box { background-color: #e1f5fe; padding: 12px; border-radius: 5px; font-weight: bold; font-size: 16px; color: #0277bd; text-align: center; display: none; margin-top: 10px; }
-        .btn-calc { background-color: #0d6efd; color: white; border: none; width: 100%; padding: 12px; border-radius: 5px; font-size: 15px; font-weight: bold; cursor: pointer; }
-
-        .btn-call { background-color: #198754; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center; }
-        .btn-whatsapp { background-color: #25d366; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center; margin-top: 10px; display: block; text-decoration: none; }
-        
-        .form-section { background-color: #fff; border: 1px solid #e3e6f0; padding: 20px; border-radius: 10px; margin: 30px 0; text-align: left; }
-        label { font-weight: bold; color: #333; font-size: 14px; }
+        body { background-color: #f4f6f9; font-family: sans-serif; padding: 20px; color: #333; }
+        .container { background-color: white; max-width: 500px; margin: 20px auto; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #198754; text-align: center; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+        button { background-color: #198754; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        button:hover { background-color: #157347; }
+        .result { background-color: #e8f5e9; border: 1px solid #c8e6c9; padding: 15px; border-radius: 6px; margin-top: 20px; display: none; font-weight: bold; color: #1b5e20; text-align: center; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Sunan Kasuwanci -->
-        <div class="header">
-            <div class="title">Bashar Telecom 📱</div>
-            <div class="subtitle">Saurin Aiki, Amana, da Inganci</div>
-        </div>
-
-        <!-- Akwatunan Ayyuka -->
-        <h5 style="color: #212529; font-weight: bold; margin-bottom: 15px;">Ayyukanmu:</h5>
-        <div class="row">
-            <div class="service-card">
-                <div class="service-title">🛒 Siyar da SIM Card</div>
-                <div class="service-desc">Muna siyar da sabbin SIM na MTN, Airtel, Glo, da 9mobile tare da yin rajista nan take.</div>
+        <h2>Bashar Telecom</h2>
+        
+        <!-- CALCULATOR SECTION -->
+        <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px dashed #ccc;">
+            <h4 style="text-align:center;">Lissafo Kudin Aiki Cikin Sauri</h4>
+            <div class="form-group">
+                <label>Zabi Sabis:</label>
+                <select id="sabis">
+                    <option value="100">Siyar da SIM Card (₦100)</option>
+                    <option value="50">Saka Katin Waya (₦50)</option>
+                    <option value="500">Gyaran Waya (₦500)</option>
+                </select>
             </div>
-            <div class="service-card" style="border-left-color: #dc3545;">
-                <div class="service-title">🔄 SIM Swap</div>
-                <div class="service-desc">SIM dinka ya bace ko ya lalace? Kawo lamba mu taya ka dawo da shi cikin kankanin lokaci.</div>
+            <div class="form-group">
+                <label>Yawan Aiki:</label>
+                <input type="number" id="yawan_aiki" value="1">
             </div>
-            <div class="service-card" style="border-left-color: #ffc107;">
-                <div class="service-title">🪪 National ID & NIN</div>
-                <div class="service-desc">Yin rajistar sabon NIN, sauke katin National ID, da gyara matsalolin katinku cikin sauki.</div>
-            </div>
+            <button onclick="lissakoKudi()">Lissafo Kudi</button>
+            <div id="sakamako" class="result"></div>
         </div>
 
-        <!-- Sashen Calculator -->
-        <div class="calc-section">
-            <h5 style="color: #212529; font-weight: bold; margin: 0 0 15px 0; text-align: center;">🧮 Lissafo Kudin Aiki Cikin Sauri</h5>
-            <label>Zabi Sabis:</label>
-            <select id="sabis">
-                <option value="1000">Siyar da SIM Card (Lifita ₦1,000)</option>
-                <option value="1500">SIM Swap (Lifita ₦1,500)</option>
-                <option value="2000">National ID & NIN (Lifita ₦2,000)</option>
-            </select>
-            <label>Yawan Abubuwan Da Kake Bukata:</label>
-            <input type="number" id="yawan_aiki" value="1" min="1">
-            <button class="btn-calc" onclick="lissafoKudi()">Lissafo Kudin Aiki</button>
-            <div id="sakamako" class="res-box"></div>
+        <!-- FIREBASE FORM SECTION -->
+        <h4>Tura Bukatar Aiki</h4>
+        <div class="form-group">
+            <label>Sunanka:</label>
+            <input type="text" id="bako_suna" placeholder="Rubuta sunanka">
         </div>
-
-        <!-- SABON SASHEN FOM NA DATABASE -->
-        <div class="form-section">
-            <h5 style="color: #212529; font-weight: bold; margin: 0 0 15px 0; text-align: center;">📝 Tura Bukatar Aiki</h5>
-            <form>
-                <label>Sunanka:</label>
-                <input type="text" id="bako_suna" placeholder="Rubuta sunanka a nan">
-
-                <label>Lambar Wayarka:</label>
-                <input type="text" id="bako_tel" placeholder="Misali: 08033333333">
-
-                <label>Imeil Dinka (Idan akwai):</label>
-                <input type="email" id="bako_email" placeholder="misali@gmail.com">
-
-                <button type="button" class="btn-calc" style="background-color: #2ecc71; margin-top: 10px;" onclick="turaBayanai()">Tura Bayanai zuwa Database</button>
-            </form>
+        <div class="form-group">
+            <label>Lambar Wayarka:</label>
+            <input type="tel" id="bako_tel" placeholder="070...">
         </div>
-
-        <!-- Guraren Tuntuba -->
-        <a href="tel:+2347048888996" class="btn-call" style="text-decoration: none; display: block;">📞 Kira Mu Yanzu</a>
-        <a href="https://wa.me." class="btn-whatsapp" target="_blank">💬 Magana a WhatsApp</a>
+        <div class="form-group">
+            <label>Imeil Dinka (Idan akwai):</label>
+            <input type="email" id="bako_email" placeholder="Sanya email">
+        </div>
+        <button onclick="turaBayanai()">Tura Bayanai zuwa Database</button>
     </div>
 
-    <!-- KWA KWALWAR JAVASCRIPT -->
-    <script>
-          <!-- HAƊA FIREBASE LIBRARIES -->
+    <!-- HADA FIREBASE LIBRARIES -->
     <script type="module">
         import { initializeApp } from "https://gstatic.com";
         import { getFirestore, collection, addDoc, serverTimestamp } from "https://gstatic.com";
 
-        // Lambobin sirrinka na Firebase (Na kofe su daidai daga hoton ka)
         const firebaseConfig = {
-            apiKey: "AIzaSyAgoZjSJ0UhNuS41829TufSsQjxxtmNzHA",
+            apiKey: "AIzaSyAgoZjSj0UhNuS41829TufSsQjxxtmNzHA",
             authDomain: "://firebaseapp.com",
             projectId: "bashar-telecome",
             storageBucket: "bashar-telecome.firebasestorage.app",
@@ -108,124 +71,49 @@
             appId: "1:132367519500:web:046269e58a79bb9badc329"
         };
 
-        // Kunna Firebase da Database
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // 1. Sakon Maraba na da
-        alert("Barka da zuwa Bashar Telecom! 📱\nMuna farin ciki da ziyararku. Muna muku fatan alheri da samun sabis mai inganci.");
+        // Alert na Maraba
+        alert("Barka da zuwa Bashar Telecom! \nMuna farin ciki da ziyararku.");
 
-        // 2. Lissafin Calculator na da
-        window.lissafoKudi = function() {
+        // Aikin Calculator
+        window.lissakoKudi = function() {
             let kudin_sabis = document.getElementById("sabis").value;
             let yawa = document.getElementById("yawan_aiki").value;
             let jimilla = kudin_sabis * yawa;
-            
             let gurin_sakamako = document.getElementById("sakamako");
             gurin_sakamako.style.display = "block";
             gurin_sakamako.innerHTML = "Jimillar Kudinka: ₦" + jimilla;
         }
 
-        // 3. SABON AIKIN TURA BAYANAI ZUWA GOOGLE DATABASE
+        // Aikin Tura Bayanai zuwa Firebase
         window.turaBayanai = async function() {
-            let suna = document.getElementById("bako_suna").value;
-            let waya = document.getElementById("bako_tel").value;
-            let email = document.getElementById("bako_email").value;
-            
-            if(suna === "" || waya === "") {
-                alert("Don Allah cika gurin Suna da Lambar Waya!");
+            var suna = document.getElementById("bako_suna").value;
+            var waya = document.getElementById("bako_tel").value;
+            var email = document.getElementById("bako_email").value;
+
+            if(suna == "" || waya == "") {
+                alert("Don Allah cika Suna da Lambar Waya!");
                 return;
             }
 
             try {
-                // Tura bayanai zuwa babban tebur mai suna 'Abokan_Ciniki'
                 await addDoc(collection(db, "Abokan_Ciniki"), {
-                    sunan_bako: suna,
-                    lambar_waya: waya,
+                    sunanka: suna,
+                    wayarka: waya,
                     imeil: email,
                     lokaci: serverTimestamp()
                 });
-                
-                alert("Sannu " + suna + ", an tura bayaranku zuwa Database cikin nasara! ✨");
-                
-                // Goge abin da aka rubuta bayan an tura
+                alert("An tura bayanai cikin nasara zuwa Database! 🎉");
                 document.getElementById("bako_suna").value = "";
                 document.getElementById("bako_tel").value = "";
                 document.getElementById("bako_email").value = "";
-                
             } catch (error) {
-                console.error("Kuskure ya faru: ", error);
-                alert("An sami matsala wajen aikawa, duba intanet dinka!");
+                alert("An sami matsala wajen aikawa: " + error.message);
             }
         }
     </script>
-    
-    <!-- HAƊA FIREBASE LIBRARIES -->
-    <script type="module">
-        import { initializeApp } from "https://gstatic.com";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://gstatic.com";
-
-        // Lambobin sirrinka na Firebase (Na kofe su daidai daga hoton ka)
-        const firebaseConfig = {
-            apiKey: "AIzaSyAgoZjSJ0UhNuS41829TufSsQjxxtmNzHA",
-            authDomain: "://firebaseapp.com",
-            projectId: "bashar-telecome",
-            storageBucket: "bashar-telecome.firebasestorage.app",
-            messagingSenderId: "132367519500",
-            appId: "1:132367519500:web:046269e58a79bb9badc329"
-        };
-
-        // Kunna Firebase da Database
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // 1. Sakon Maraba na da
-        alert("Barka da zuwa Bashar Telecom! 📱\nMuna farin ciki da ziyararku. Muna muku fatan alheri da samun sabis mai inganci.");
-
-        // 2. Lissafin Calculator na da
-        window.lissafoKudi = function() {
-            let kudin_sabis = document.getElementById("sabis").value;
-            let yawa = document.getElementById("yawan_aiki").value;
-            let jimilla = kudin_sabis * yawa;
-            
-            let gurin_sakamako = document.getElementById("sakamako");
-            gurin_sakamako.style.display = "block";
-            gurin_sakamako.innerHTML = "Jimillar Kudinka: ₦" + jimilla;
-        }
-
-        // 3. SABON AIKIN TURA BAYANAI ZUWA GOOGLE DATABASE
-        window.turaBayanai = async function() {
-            let suna = document.getElementById("bako_suna").value;
-            let waya = document.getElementById("bako_tel").value;
-            let email = document.getElementById("bako_email").value;
-            
-            if(suna === "" || waya === "") {
-                alert("Don Allah cika gurin Suna da Lambar Waya!");
-                return;
-            }
-
-            try {
-                // Tura bayanai zuwa babban tebur mai suna 'Abokan_Ciniki'
-                await addDoc(collection(db, "Abokan_Ciniki"), {
-                    sunan_bako: suna,
-                    lambar_waya: waya,
-                    imeil: email,
-                    lokaci: serverTimestamp()
-                });
-                
-                alert("Sannu " + suna + ", an tura bayaranku zuwa Database cikin nasara! ✨");
-                
-                // Goge abin da aka rubuta bayan an tura
-                document.getElementById("bako_suna").value = "";
-                document.getElementById("bako_tel").value = "";
-                document.getElementById("bako_email").value = "";
-                
-            } catch (error) {
-                console.error("Kuskure ya faru: ", error);
-                alert("An sami matsala wajen aikawa, duba intanet dinka!")  
-           }
-        }
-</script>
 
 </body>
 </html>
