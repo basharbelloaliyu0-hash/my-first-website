@@ -159,8 +159,74 @@
             }
         }
     </script>
+    
+    <!-- HAƊA FIREBASE LIBRARIES -->
+    <script type="module">
+        import { initializeApp } from "https://gstatic.com";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://gstatic.com";
 
-</script>
+        // Lambobin sirrinka na Firebase (Na kofe su daidai daga hoton ka)
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgoZjSJ0UhNuS41829TufSsQjxxtmNzHA",
+            authDomain: "://firebaseapp.com",
+            projectId: "bashar-telecome",
+            storageBucket: "bashar-telecome.firebasestorage.app",
+            messagingSenderId: "132367519500",
+            appId: "1:132367519500:web:046269e58a79bb9badc329"
+        };
+
+        // Kunna Firebase da Database
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // 1. Sakon Maraba na da
+        alert("Barka da zuwa Bashar Telecom! 📱\nMuna farin ciki da ziyararku. Muna muku fatan alheri da samun sabis mai inganci.");
+
+        // 2. Lissafin Calculator na da
+        window.lissafoKudi = function() {
+            let kudin_sabis = document.getElementById("sabis").value;
+            let yawa = document.getElementById("yawan_aiki").value;
+            let jimilla = kudin_sabis * yawa;
+            
+            let gurin_sakamako = document.getElementById("sakamako");
+            gurin_sakamako.style.display = "block";
+            gurin_sakamako.innerHTML = "Jimillar Kudinka: ₦" + jimilla;
+        }
+
+        // 3. SABON AIKIN TURA BAYANAI ZUWA GOOGLE DATABASE
+        window.turaBayanai = async function() {
+            let suna = document.getElementById("bako_suna").value;
+            let waya = document.getElementById("bako_tel").value;
+            let email = document.getElementById("bako_email").value;
+            
+            if(suna === "" || waya === "") {
+                alert("Don Allah cika gurin Suna da Lambar Waya!");
+                return;
+            }
+
+            try {
+                // Tura bayanai zuwa babban tebur mai suna 'Abokan_Ciniki'
+                await addDoc(collection(db, "Abokan_Ciniki"), {
+                    sunan_bako: suna,
+                    lambar_waya: waya,
+                    imeil: email,
+                    lokaci: serverTimestamp()
+                });
+                
+                alert("Sannu " + suna + ", an tura bayaranku zuwa Database cikin nasara! ✨");
+                
+                // Goge abin da aka rubuta bayan an tura
+                document.getElementById("bako_suna").value = "";
+                document.getElementById("bako_tel").value = "";
+                document.getElementById("bako_email").value = "";
+                
+            } catch (error) {
+                console.error("Kuskure ya faru: ", error);
+                alert("An sami matsala wajen aikawa, duba intanet dinka!");
+            }
+        }
+
+    </script>
 
 </body>
 </html>
