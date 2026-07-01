@@ -101,18 +101,20 @@
         import { getFirestore, collection, addDoc, serverTimestamp } from "https://gstatic.com";
 
         // Lambobin sirrinka na Firebase (Na kofe su daidai daga hoton ka)
-        const firebaseConfig = {
-            apiKey: "AIzaSyAgoZjSJ0UhNuS41829TufSsQjxxtmNzHA",
-            authDomain: "://firebaseapp.com",
-            projectId: "bashar-telecome",
-            storageBucket: "bashar-telecome.firebasestorage.app",
-            messagingSenderId: "132367519500",
-            appId: "1:132367519500:web:046269e58a79bb9badc329"
-        };
+                // Sabon aikin tura sako ta Formspree ba tare da API Key ba
+        window.turaBayanai = function() {
+            var suna = document.getElementById("bako_suna").value;
+            var waya = document.getElementById("bako_tel").value;
+            
+            if(suna == "" || waya == "") {
+                alert("Don Allah cika Suna da Lambar Waya!");
+                return;
+            }
+            
+            // Tilasta wa form din Formspree ya tafi
+            document.querySelector("form").submit();
+        }
 
-        // Kunna Firebase da Database
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
 
         // 1. Sakon Maraba na da
         alert("Barka da zuwa Bashar Telecom! 📱\nMuna farin ciki da ziyararku. Muna muku fatan alheri da samun sabis mai inganci.");
